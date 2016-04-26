@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="fixed">
+	<div class="top-bar">
+	  <div class="top-bar-title"><a href="#">Treebook</a></div>
+	  <div>
+	    <div class="top-bar-left">
+	    	<%= link_to "All Statuses", statuses_path %>
+	    </div>
+	    <div class="top-bar-right"><a href="#">Desno</a></div>
+	  </div>
+	</div>
+</div>
 
-<%= yield %>
+	</div>
 
+	<div class="row">
+		<%= yield %>	
+	</div>
 </body>
 </html>
