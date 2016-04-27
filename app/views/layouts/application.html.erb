@@ -14,15 +14,25 @@
 	    <div class="top-bar-left">
 	    	<%= link_to "All Statuses", statuses_path %>
 	    </div>
-	    <div class="top-bar-right"><a href="#">Desno</a></div>
+	    <div class="top-bar-right">
+	    	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> 
+	    </div>
 	  </div>
 	</div>
 </div>
 
 	</div>
 
+	   <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 	<div class="row">
+
 		<%= yield %>	
+	
+
 	</div>
+
+
+
 </body>
 </html>
