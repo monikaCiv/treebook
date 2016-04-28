@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users - promjene u odnosu na Ruby 3
+
+  #NOVI NAČIN ZA POVEZIVANJE KORISNIKA I STATUSA
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :statuses
   root to: 'statuses#index'
   # The priority is based upon order of creation: first created -> highest priority.
