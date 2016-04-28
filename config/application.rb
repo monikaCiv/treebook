@@ -23,5 +23,8 @@ module Treebook
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.initialize_on_precompile = false
+
+    #MOŽDA TREBA OBRISATI RADI SIGURNOSTI
+    config.web_console.development_only = false
   end
 end
