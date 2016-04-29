@@ -3,8 +3,29 @@ Rails.application.routes.draw do
 
   #NOVI NAČIN ZA POVEZIVANJE KORISNIKA I STATUSA
   devise_for :users, :controllers => { registrations: 'registrations' }
+  
+
+  #IZ DOKUMENTACIJE ZA DEVISE NAĐEMO TO
+  devise_scope :user do
+    get 'register' , to: 'devise/registrations#new', as: :register
+    get 'login' , to: 'devise/sessions#new', as: :login
+    get 'logout' , to: 'devise/sessions#destroy', as: :logout
+  end
+
+
+
+
   resources :statuses
+
+  get 'feed', to: 'statuses#index'
+
+  #NEKA STATUSI BUDU GLAVNA STRANICA
   root to: 'statuses#index'
+  
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
