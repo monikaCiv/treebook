@@ -15,8 +15,7 @@ class CustomTestTest < ActionDispatch::IntegrationTest
 
 		test "that /register route opens the sign up page" do
 		get '/register'
-		assert_response :redirect #osigurati da je ono prošlo
-		assert_redirected_to '/'
+		assert_response :success #osigurati da je ono prošlo'
 	end
 
 

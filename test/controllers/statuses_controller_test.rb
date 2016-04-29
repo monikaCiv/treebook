@@ -11,6 +11,13 @@ class StatusesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:statuses)
   end
 
+  #DA BUDEMO SIGURNI DA JE LOGIRAN DA BI OBJAVIO STATUS
+  test "should be logged in to post a status" do
+    post :create, status: { content: "Hello" }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
   #MIJENJAMO AKO ŽELIMO DA KORISNIK MOŽE POSTATI SAMO AKO JE PRIJAVLJEN POD SVOJIM IMENOM
   test "should be redirected when not logged in" do
     get :new
@@ -26,8 +33,10 @@ class StatusesControllerTest < ActionController::TestCase
   end
 
 
-  test "should create status" do
-    assert_difference('Status.count') do
+  test "should create status when logged in" do
+      sign_in users(:monika)
+      
+      assert_difference('Status.count') do
       post :create, status: { content: @status.content }
     end
 
